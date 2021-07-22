@@ -38,7 +38,7 @@ function checkphonef3(c1,c2,c3){
   {
     demo1.textContent=""
     ans1=false
-    error2.textContent = "Please enter valid phone no"
+    
   }
   return ans1;
 }
@@ -60,11 +60,16 @@ function checkphones3(c4,c5,c6){
     console.log("reliance")
     ans2=true;
     }
+    else{
+    demo2.textContent=""
+    ans2=false
+    
+  }
   }
   else{
     demo2.textContent=""
     ans2=false
-    error2.textContent = "Please enter valid phone no"
+    
   }
   return ans2;
 }
@@ -73,11 +78,11 @@ function checkphonel4(c7,c8,c9,c10){
 
   if(c7.match(RE) && c8.match(RE) && c9.match(RE) && c10.match(RE))
   {
-    error2.textContent = "correct"
+   
     ans3=true;
   }
   else{
-    ans3=true;
+    ans3=false;
     error2.textContent = "Please enter valid phone no"
   }
   return ans3;
@@ -103,6 +108,13 @@ var demo2 = document.getElementById("demo2");
       answer1=checkphonef3(c1,c2,c3)
       answer2=checkphones3(c4,c5,c6)
       answer3=checkphonel4(c7,c8,c9,c10)
+      if(answer1 && answer2 && answer3){
+         error2.textContent ="correct"
+        }
+      else{
+         error2.textContent ="You entered invalid phone no"
+      }
+
       console.log("answer1 answer2",answer1,answer2);
 
       // Phone no will be validated in the format e.g 7775678976
@@ -159,7 +171,7 @@ function allLetter()
    
     mailvalidation = emailValidation();
     nameValidation = fnameValidation();
-    if((mailvalidation) && (nameValidation) && (answer1) && (answer2) && (answer2) ){
+    if((mailvalidation) && (nameValidation) && (answer1) && (answer2) && (answer3)){
      console.log("in other if");
       // formfields.style.display="none";
       // output.style.display="block";
@@ -170,7 +182,11 @@ function allLetter()
       // output1.value='success';
       var otp = Math.floor(1000 + Math.random() * 9000);
       console.log("random no",otp);
+	
       window.location.href = "trial.html?fname=" + splitString[0] + "&otp=" + otp + "&phno=" + phoneNo; 
     }
+
+	
   }//end of 
+
 
